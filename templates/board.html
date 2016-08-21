@@ -8,10 +8,10 @@
     <script type=text/javascript src="../static/js/board.js"></script>
 </head>
 <body>
-    <span>Looking for <span id="hint">{{cur}}</span></span>
+    <p>Looking for <span id="hint">{{cur}}</span></p>
 
     {% macro render_cell(num) -%}
-    	<td class="field table-active text-center table-info" >{{num}}</td>
+    	<td class="field" >{{num}}</td>
         {{ caller() }}
     {%- endmacro %}
 

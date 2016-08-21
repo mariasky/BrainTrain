@@ -9,8 +9,8 @@
 </head>
 <body>
 	<form method="post">
-		<p>The best players:</p>
-		<table class="table-active table-bordered table-condensed">
+		<p>The best players</p>
+		<table class="table-bordered table-condensed">
 		{% for row in data %}
       			<tr><td>{{loop.index}}</td><td>
 			{% if row[0] == 0 %}
@@ -23,7 +23,7 @@
         	{% endfor %} 
 		</table>
         {% if submit %}
-        	<input type=submit value="Save record"></input>
+        	<input type=submit class="btn center" value="Save record"></input>
         {% endif %}
 	</form>
 </body>
