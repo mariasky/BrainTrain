@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>The best players</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    
+    <script type=text/javascript src="../static/js/board.js"></script>
+</head>
+<body>
+	<form method="post">
+		<p>The best players:</p>
+		<table class="table-active table-bordered table-condensed">
+		{% for row in data %}
+      			<tr><td>{{loop.index}}</td><td>
+			{% if row[0] == 0 %}
+                        <input type="text" name="champion_name"></input>
+                        {% else %}
+			{{row[1]}}
+			{% endif %}
+					
+		</td><td name="champion_score" class="score-cell">{{row[2]}}</td></tr>	
+        	{% endfor %} 
+		</table>
+        {% if submit %}
+        	<input type=submit value="Save record"></input>
+        {% endif %}
+	</form>
+</body>
+</html>

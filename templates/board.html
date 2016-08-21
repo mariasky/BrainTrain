@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Train your brain!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript src="../static/js/board.js"></script>
+</head>
+<body>
+    <span>Looking for <span id="hint">{{cur}}</span></span>
+
+    {% macro render_cell(num) -%}
+    	<td class="field table-active text-center table-info" >{{num}}</td>
+        {{ caller() }}
+    {%- endmacro %}
+
+    <table class="table-active table-bordered table-condensed">
+         <tbody>
+         <tr>
+         {% for num in nums %}
+                              	
+		{% call render_cell(num) %} 
+			{% if loop.index is divisibleby size %}
+                        	</tr><tr>
+			{% endif %} 
+		{% endcall %}
+		                  
+             
+         {% endfor %}  
+         </tr>
+         </tbody>
+    </table>
+    <!--div id='counter'>comment</div-->
+
+</body>
+</html>

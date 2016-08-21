@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Train your brain!</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript src="../static/js/board.js"></script>
+</head>
+<body>
+    <h1>Select train level</h1>
+    <div class="btn-group">
+     {% for row in data %}
+     <a href="{{ url_for('show_board_href',size = row[0]) }}"><div class="btn btn-default btn-block text-primary" >{{ row[1] }}</div></br>
+     {% endfor %}
+    </div></a>
+    <!--h1>{{data}}</h1-->
+</body>
+</html>
