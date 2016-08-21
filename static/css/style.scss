@@ -1,5 +1,13 @@
-$bkg_color: #5882FA;
-$ffamily: "Open Sans";
+$bkgcolor: #5882FA;
+$fcolor: #200772;
+$alertcolor: #B70094;
+$bcolor: #7C71D8;
+$fweight: bold;
+$fsize_l: 24px;
+$fsize_m: 18px;
+$btnwidh: 120px;
+$btnheight: 42px;
+$cell: 25px;
 
 html,
 body,
@@ -7,13 +15,64 @@ ul,
 ol {
   margin: 0;
   padding: 0;
-  background-color: $bkg_color;
+  background-color: $bkgcolor;
 }
 
-table {
+input[type=text] {
+  color: $fcolor;
+  background-color: $bkgcolor;
+}
+
+input[type=submit] {
+  background-color: $bcolor;
+}
+
+table,
+td {
   border: 1px solid;
+  border-collapse: collapse;
+  padding: 8px;
 }
 
-h1 {
-  font-family {}
+p {
+  font-size: $fsize_l;
+  font-weight: $fweight;
+  color: $fcolor;
+}
+
+div {
+  display:table-cell {}
+
+  margin-left:5px {}
+
+  margin-top:6px {}
+
+  font-size: $fsize_l;
+}
+
+.btn {
+  border: 1px solid;
+  width: $btnwidh;
+  height: $btnheight;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+#hint {
+  color: $alertcolor;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  align: center;
+}
+
+.field {
+  @extend .text-center;
+
+  width: $cell;
+  height: $cell;
 }

@@ -6,7 +6,49 @@ ol {
   padding: 0;
   background-color: #5882FA; }
 
-table {
-  border: 1px solid; }
+input[type=text] {
+  color: #200772;
+  background-color: #5882FA; }
+
+input[type=submit] {
+  background-color: #7C71D8; }
+
+table,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 8px; }
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #200772; }
+
+div {
+  margin-left: 5px;
+  margin-top: 6px;
+  font-size: 24px; 
+  text-decoration: none; 
+}
+
+.btn {
+  border: 1px solid;
+  width: 120px;
+  height: 42px;
+  vertical-align: middle;
+  text-decoration: none; }
+
+#hint {
+  color: #B70094; }
+
+.text-center, .field {
+  text-align: center; }
+
+.center {
+  align: center; }
+
+.field {
+  width: 25px;
+  height: 25px; }
 
 /*# sourceMappingURL=style.css.map */
