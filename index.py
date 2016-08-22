@@ -2,9 +2,10 @@ from flask import Flask, jsonify, render_template, request
 from sassutils.wsgi import SassMiddleware
 from flask_mysqldb import MySQLdb
 import random
-
 app = Flask(__name__)
-db = MySQLdb.connect("localhost", "root", "root", "BrainTrain")
+app.config.from_object(__name__)
+db = 0
+
 #array of available boards
 boards = []
 #id of selected board
@@ -14,8 +15,15 @@ time = 0
 #if saving is needed
 saveToDB = 0
 
+def init_db():
+    global db
+    if not db :
+        db =MySQLdb.connect("localhost", "root", "root", "BrainTrain")    
+    
+
 #get settinf of all the boards
 def get_board_items():
+    init_db()
     curs = db.cursor()
     try:
         curs.execute("SELECT * FROM Border")
@@ -26,6 +34,7 @@ def get_board_items():
 
 #read list of champions for current board
 def get_champion_items():
+    init_db()
     curs = db.cursor()
     try:
         curs.execute("SELECT ChampionId, ChampionName, ChampionTime FROM Champion WHERE ChampionBoardId  = %s ORDER BY ChampionTime LIMIT 10", (str(curboard)))
@@ -102,6 +111,7 @@ def show_champion():
 def save_champion():    
     name = request.form["champion_name"]
     sql="INSERT Champion(ChampionName, ChampionBoardId, ChampionTime) VALUES(%s, %s, %s)" 
+    init_db()
     curs = db.cursor()
     curs.execute(sql, (name, curboard, time))
     db.commit()
@@ -125,3 +135,5 @@ def start():
 
 if __name__ == "__main__":
     app.run()
+    #unittest.main()
+
