@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, render_template, request
-from sassutils.wsgi import SassMiddleware
 from flask_mysqldb import MySQLdb
 import random
 app = Flask(__name__)
@@ -134,6 +133,6 @@ def start():
    # return jsonify(data)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
     #unittest.main()
 
